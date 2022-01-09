@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2020/02/ProvisioningSchema">
+  <pnp:Templates ID="Templates">
+    <pnp:ProvisioningTemplate ID="TemplateId">
+      <pnp:Lists>
+        <pnp:ListInstance Title="Drive Loggings Teams Settings" Url="Lists/DiveLoggingTeamsSettings" Description="" Hidden="false" TemplateType="100">
+          <pnp:Fields>
+            <Field Name="Title" DisplayName="Seade" Type="Text" ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" />            
+            <Field Name="Value" DisplayName="Väärtus" Type="Text" Required="FALSE" ID="{f8881a63-5456-4932-b7c7-a10d9b1f158e}" />            
+          </pnp:Fields>
+          <pnp:Views RemoveExistingViews='true'>
+            <View DisplayName="Kõik"  DefaultView="TRUE" MobileView="TRUE" Type="HTML" Level="1" BaseViewID="1" Name="{8256FA45-A846-4E5B-BB90-57AFF7F770E7}">
+              <Query>
+                <OrderBy>
+                  <FieldRef Name='ID' />
+                </OrderBy>
+              </Query>
+              <ViewFields>
+                <FieldRef Name="Title" />
+                <FieldRef Name="Value" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">50</RowLimit>
+            </View>
+          </pnp:Views>
+          <pnp:DataRows KeyColumn="Title" UpdateBehavior="Skip">
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">siteUrl</pnp:DataValue>
+              <pnp:DataValue FieldName="Value"></pnp:DataValue>
+            </pnp:DataRow>
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">carsListRelUrl</pnp:DataValue>
+              <pnp:DataValue FieldName="Value"></pnp:DataValue>
+            </pnp:DataRow>  
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">usagesListRelUrl</pnp:DataValue>
+              <pnp:DataValue FieldName="Value"></pnp:DataValue>
+            </pnp:DataRow>
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">approverName</pnp:DataValue>
+              <pnp:DataValue FieldName="Value"></pnp:DataValue>
+            </pnp:DataRow>  
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">title</pnp:DataValue>
+              <pnp:DataValue FieldName="Value"></pnp:DataValue>
+            </pnp:DataRow>
+          </pnp:DataRows>
+        </pnp:ListInstance>
+      </pnp:Lists>
+    </pnp:ProvisioningTemplate>
+  </pnp:Templates>
+</pnp:Provisioning>

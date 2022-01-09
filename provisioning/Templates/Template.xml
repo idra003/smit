@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2020/02/ProvisioningSchema">
+    <pnp:Preferences Version="1" Author="ShareCloud" />
+    <pnp:Templates>
+        <pnp:ProvisioningTemplate ID="SPO-DMS-Base">
+            <pnp:Lists>
+                <pnp:ListInstance Title="EmptyList" Url="Lists/UrlNameOfEmptyList" Description="" Hidden="false" TemplateType="100">
+                    <pnp:Fields>
+                        <Field Name="Title" DisplayName="ErilineTitleVäärtus" Type="Text" ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" />
+                        <Field Name="TextValue" DisplayName="TextVäärtus" Type="Text" Required="FALSE" ID="{190515FF-4956-4C9F-9817-B9CB60C51049}" />
+                        <Field Name="NoteValue"  DisplayName="NoteVäärtus" Type="Note"  Required="FALSE" Indexed="FALSE" NumLines="6" RichText="FALSE" Sortable="FALSE" ID="{262772f9-0b1f-49ac-b45a-6f541f9e8a32}" />
+                        <Field Name="RichTextNoteValue" DisplayName="RichTextNoteVäärtus" Type="Note"  Required="FALSE" Indexed="FALSE" NumLines="6" RichText="TRUE" RichTextMode="FullHtml" Sortable="FALSE" ID="{262772f9-0b1f-49ac-b45a-6f541f9e8a32}" />
+                        <Field Name="NumberValue" DisplayName="NumberVäärtus" Type="Number" Required="FALSE" Indexed="FALSE" ID="{c022d0d0-b6bd-4aa0-9631-82b26aa8d855}" />
+                        <Field Name="DateOnlyValue" DisplayName="DateOnluVäärtus" Type="DateTime" Required="FALSE" Indexed="FALSE" Format="DateOnly" FriendlyDisplayFormat="Disabled" ID="{786caf92-3d2c-4463-8cb1-1fdf2f4c2367}" />
+                        <Field Name="DateTimeValue" DisplayName="DateTimeVäärtus" Type="DateTime" Required="FALSE" Indexed="FALSE" Format="DateTime" FriendlyDisplayFormat="Disabled" ID="{786caf92-3d2c-4463-8cb1-1fdf2f4c2367}" />
+                        <Field Name="UserValue" DisplayName="UserVäärtus" Type="User" List="UserInfo" Required="FALSE" ShowField="ImnName" UserSelectionMode="PeopleOnly" UserSelectionScope="615" Group="" Mult="FALSE" ID="{15cf72ca-0189-4aa2-9614-a5ca783d869a}" />
+                        <Field Name="MultiUserValue" DisplayName="MultiUserVäärtus" Type="UserMulti" List="UserInfo" Required="FALSE" ShowField="ImnName" Mult="TRUE" UserSelectionMode="PeopleOnly" UserSelectionScope="0" ID="{ba5dde84-c138-4e12-aa3f-1251724c1186}" />
+                        <Field Name="ChoiceValue" DisplayName="ChoiceVäärtus" Type="Choice" Required="FALSE" Format="Dropdown" ID="{dc9fbfd1-42ed-48a8-a6ff-9b11216c2a9d}">
+                            <Default>VaikimisiValik</Default>
+                            <CHOICES>
+                                <CHOICE>VaikimisiValik</CHOICE>
+                                <CHOICE>TeineValik</CHOICE>
+                            </CHOICES>
+                        </Field>
+                        <Field Name="MultiChoiceValue" DisplayName="MultiChoiceVäärtus" Type="MultiChoice" Required="FALSE" Indexed="FALSE" FillInChoice="FALSE" ID="{23f6b3fa-0061-4817-97cb-7378944905b8}" >
+                            <Default>VaikimisiValik</Default>
+                            <CHOICES>
+                                <CHOICE>VaikimisiValik</CHOICE>
+                                <CHOICE>TeineValik</CHOICE>                               
+                            </CHOICES>
+                        </Field>
+                        <Field Name="LookupValue" DisplayName="LookupVäärtus" Type="Lookup" List="Lists/UrlNameOfList" Required="FALSE" ShowField="Title" ID="{03fb572e-144c-4a75-a373-fc88259d75f0}" />
+                        <Field Name="MultiLookupValue" DisplayName="MultiLookupVäärtus" Type="LookupMulti" List="Lists/UrlNameOfList"  Mult="TRUE" ShowField="Title" Required="FALSE" ID="{9140360f-7bce-4ef0-bf97-c598f4ca50f7}" />
+                        <Field Name="CalculatedValue" DisplayName="KalkuleeritudVäärtus" Type="Calculated" ResultType="Text" ID="{980b07de-ac4c-4bdf-bd1c-83ae0a27f64f}">
+                            <Formula>=DAY(Sünnikuupäev)&#38;&quot;.&quot;&#38;MONTH(Sünnikuupäev)</Formula>
+                        </Field>
+                        <Field Name="ImageValue" DisplayName="PildiVäärtus" Type="URL" Required="FALSE" Indexed="FALSE" Format="Image" ID="{6ae33dfc-709a-4b45-bf99-3e3eb7f164a5}" />
+                        <Field Name="HyperlinkValue" DisplayName="HüperlingiVäärtus" Type="URL" Required="FALSE" Indexed="FALSE" Format="Hyperlink" ID="{6ae33dfc-709a-4b45-bf99-3e3eb7f164a5}" />
+                        <Field Name="BooleanValue" DisplayName="BooleanVäärtus" Type="Boolean" Indexed="FALSE" ID="{92754bb9-88d9-433b-919c-0d3bfb4fb19c}">
+                            <Default>1</Default>
+                        </Field>
+                        <Field Name="CalculatedTextField" DisplayName="CalculatedTextVäärtus" Type="Calculated" ResultType="Text" EnforceUniqueValues="FALSE" Indexed="FALSE" ReadOnly="TRUE" Required="FALSE" ID="{20dbe342-f9dc-4ae1-9a8b-e47364005325}">
+                            <Formula>=[BWI]&amp;" "&amp;[BWI Name]</Formula>
+                        </Field>
+                    </pnp:Fields>
+                    <pnp:Views RemoveExistingViews='true'>
+                        <View DisplayName="Kõik"  DefaultView="TRUE" MobileView="TRUE" Type="HTML" Level="1" BaseViewID="1" Name="{8256FA45-A846-4E5B-BB90-57AFF7F770E7}">
+                            <Query>
+                                <OrderBy>
+                                    <FieldRef Name='ID' />
+                                </OrderBy>
+                            </Query>
+                            <ViewFields>
+                                <FieldRef Name="LinkTitle" />
+                                <FieldRef Name="TextValue" />
+                            </ViewFields>
+                            <RowLimit Paged="TRUE">50</RowLimit>
+                        </View>
+                    </pnp:Views>
+                </pnp:ListInstance>
+                <pnp:ListInstance Title="DocumentLibary" Url="UrlNameOfDocumentLibary" Description="" Hidden="false" TemplateType="101">
+                    <pnp:Fields>      
+                        <Field Name="TextValue" DisplayName="TextVäärtus" Type="Text" Required="FALSE" ID="{190515FF-4956-4C9F-9817-B9CB60C51049}" />                  
+                    </pnp:Fields>
+                    <pnp:Views RemoveExistingViews='true'>
+                        <View DisplayName="Kõik"  DefaultView="TRUE" MobileView="TRUE" Type="HTML" Level="1" BaseViewID="1" Name="{8256FA45-A846-4E5B-BB90-57AFF7F770E7}">
+                            <Query>
+                                <OrderBy>
+                                    <FieldRef Name='ID' />
+                                </OrderBy>
+                            </Query>
+                            <ViewFields>
+                                <FieldRef Name="DocIcon" />
+                                <FieldRef Name="LinkFilename" />    
+                                <FieldRef Name="TextValue" />
+                            </ViewFields>
+                            <RowLimit Paged="TRUE">50</RowLimit>
+                        </View>
+                    </pnp:Views>
+                </pnp:ListInstance>
+            </pnp:Lists>
+        </pnp:ProvisioningTemplate>
+    </pnp:Templates>
+</pnp:Provisioning>

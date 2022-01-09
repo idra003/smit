@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2020/02/ProvisioningSchema">
+  <pnp:Templates ID="Templates">
+    <pnp:ProvisioningTemplate ID="TemplateId">
+      <pnp:Lists>
+        <pnp:ListInstance Title="Proovitöö List" Url="Lists/smit" Description="" Hidden="false" TemplateType="100">
+          <pnp:Fields>
+            <Field Name="Title" DisplayName="Eelarve klassifikatsiooni nimetus" Type="Text" ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" />
+            <Field Name="smitCode" DisplayName="Eelarve klassifikaator" Type="Text" Required="FALSE" ID="{8e1704ce-2f6c-46a6-af75-e41b23c1a6c1}" />
+            <Field Name="smitArea" DisplayName="Tegevusala" Type="Text" Required="FALSE" ID="{541f5140-bfac-4870-9152-9a40d108ba39}" />
+            <Field Name="smitContent"  DisplayName="Majanduslik sisu" Type="Note"  Required="FALSE" Indexed="FALSE" NumLines="6" RichText="FALSE" Sortable="FALSE" ID="{c9539b21-cf16-42f3-8df6-e17a8cbbe1a1}" />
+          </pnp:Fields>
+          <pnp:Views RemoveExistingViews='true'>
+            <View DisplayName="Kõik"  DefaultView="TRUE" MobileView="TRUE" Type="HTML" Level="1" BaseViewID="1" Name="{8256FA45-A846-4E5B-BB90-57AFF7F770E7}">
+              <Query>
+                <OrderBy>
+                  <FieldRef Name='ID' />
+                </OrderBy>
+              </Query>
+              <ViewFields>
+                <FieldRef Name="Title" />
+                <FieldRef Name="carDescription" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">50</RowLimit>
+            </View>
+          </pnp:Views>
+        </pnp:ListInstance>        
+      </pnp:Lists>
+    </pnp:ProvisioningTemplate>
+  </pnp:Templates>
+</pnp:Provisioning>
